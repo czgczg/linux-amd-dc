@@ -332,6 +332,8 @@ int radeon_crtc_cursor_set2(struct drm_crtc *crtc,
 		x = radeon_crtc->cursor_x + radeon_crtc->cursor_hot_x - hot_x;
 		y = radeon_crtc->cursor_y + radeon_crtc->cursor_hot_y - hot_y;
 
+		radeon_cursor_move_locked(crtc, x, y);
+
 		radeon_crtc->cursor_width = width;
 		radeon_crtc->cursor_height = height;
 		radeon_crtc->cursor_hot_x = hot_x;
