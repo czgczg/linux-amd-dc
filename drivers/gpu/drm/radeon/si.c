@@ -1703,13 +1703,13 @@ static int si_init_microcode(struct radeon_device *rdev)
 		break;
 	case CHIP_OLAND:
 		chip_name = "OLAND";
-		if (((rdev->pdev->revision == 0x81) &&
-		     ((rdev->pdev->device == 0x6600) ||
-		      (rdev->pdev->device == 0x6604) ||
-		      (rdev->pdev->device == 0x6605) ||
-		      (rdev->pdev->device == 0x6610))) ||
-		    ((rdev->pdev->revision == 0x83) &&
-		     (rdev->pdev->device == 0x6610)))
+		if ((rdev->pdev->revision == 0xC7) ||
+		    (rdev->pdev->revision == 0x80) ||
+		    (rdev->pdev->revision == 0x81) ||
+		    (rdev->pdev->revision == 0x83) ||
+		    (rdev->pdev->revision == 0x87) ||
+		    (rdev->pdev->device == 0x6604) ||
+		    (rdev->pdev->device == 0x6605))
 			new_smc = true;
 		new_chip_name = "oland";
 		pfp_req_size = SI_PFP_UCODE_SIZE * 4;
