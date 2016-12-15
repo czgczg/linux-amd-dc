@@ -7695,13 +7695,13 @@ static int si_dpm_init_microcode(struct amdgpu_device *adev)
 			chip_name = "verde";
 		break;
 	case CHIP_OLAND:
-		if ((adev->pdev->revision == 0xC7) ||
-		    (adev->pdev->revision == 0x80) ||
-		    (adev->pdev->revision == 0x81) ||
-		    (adev->pdev->revision == 0x83) ||
-		    (adev->pdev->revision == 0x87) ||
-		    (adev->pdev->device == 0x6604) ||
-		    (adev->pdev->device == 0x6605))
+		if (((adev->pdev->revision == 0x81) &&
+			((adev->pdev->device == 0x6600) ||
+			(adev->pdev->device == 0x6604) ||
+			(adev->pdev->device == 0x6605) ||
+			(adev->pdev->device == 0x6610))) ||
+		    ((adev->pdev->revision == 0x83) &&
+			(adev->pdev->device == 0x6610)))
 			chip_name = "oland_k";
 		else
 			chip_name = "oland";
